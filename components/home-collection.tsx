@@ -30,6 +30,13 @@ const homeProducts = [
 ]
 
 export function HomeCollection() {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact")
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
     <section className="py-20 md:py-28 lg:py-36">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -74,7 +81,10 @@ export function HomeCollection() {
 
         {/* View All CTA */}
         <div className="text-center mt-12 md:mt-16">
-          <button className="text-xs tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors duration-300 uppercase border-b border-foreground/30 hover:border-foreground pb-1">
+          <button
+            onClick={scrollToContact}
+            className="text-xs tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors duration-300 uppercase border-b border-foreground/30 hover:border-foreground pb-1"
+          >
             居家全系列即刻探索
           </button>
         </div>

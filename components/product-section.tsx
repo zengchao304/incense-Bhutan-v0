@@ -27,6 +27,13 @@ const products = [
 ]
 
 export function ProductSection() {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact")
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
     <section className="py-24 md:py-32 lg:py-40">
       {/* Section Header */}
@@ -78,7 +85,10 @@ export function ProductSection() {
 
             {/* Explore Link */}
             <div className="text-center mt-6 md:mt-8 pb-12 md:pb-0">
-              <button className="text-xs tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors duration-300 uppercase border-b border-transparent hover:border-foreground/30 pb-1">
+              <button
+                onClick={scrollToContact}
+                className="text-xs tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors duration-300 uppercase border-b border-transparent hover:border-foreground/30 pb-1"
+              >
                 即刻探索
               </button>
             </div>

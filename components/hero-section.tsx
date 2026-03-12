@@ -12,13 +12,13 @@ export function HeroSection() {
 
   return (
     <section className="px-4 md:px-6 lg:px-8">
-      <div className="relative w-full aspect-[4/5] md:aspect-[16/9] lg:aspect-[2/1] bg-stone-100 overflow-hidden">
-        {/* Hero Image - Focus on center-bottom where the person and incense are */}
+      <div className="relative w-full aspect-[4/5] md:aspect-[16/9] lg:aspect-[21/9] bg-stone-100 overflow-hidden">
+        {/* Hero Image - Optimized wide banner for full content display */}
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unwatermarked_%E5%9B%BE1%E5%A4%A7%E5%B1%8F-4e2rTvHRhk5Apb9aGTsSC0lxlBkn62.png"
+          src="/images/hero-banner.jpg"
           alt="冥想场景 - 宁静的禅意空间与燃烧的香"
           fill
-          className="object-cover object-[center_70%] md:object-[center_60%] lg:object-[center_55%]"
+          className="object-cover object-center"
           priority
           sizes="100vw"
         />

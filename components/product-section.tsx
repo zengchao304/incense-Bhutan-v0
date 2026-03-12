@@ -1,23 +1,28 @@
 "use client"
 
+import Image from "next/image"
+
 const products = [
   {
     id: 1,
     name: "Nado 财神香",
     subtitle: "招财纳福 · 静心安神",
     category: "经典系列",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unwatermarked_%E8%B4%A2%E7%A5%9E%E9%A6%99.png-47bpSwistuFxWxyUylS6zV88Y54VkQ.jpeg",
   },
   {
     id: 2,
     name: "Poi 2015 25周年纪念香",
     subtitle: "传承经典 · 岁月醇香",
     category: "限定系列",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unwatermarked_poi.png-nij8g1dvBaL8vYFREb6q1Xv4l3iZwi.jpeg",
   },
   {
     id: 3,
     name: "Nado Happiness 黑明香",
     subtitle: "幸福安康 · 明心见性",
     category: "经典系列",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nado%20happiness-HEqLIREloNSJmDvdBkixOn2NcDdwhu.jpg",
   },
 ]
 
@@ -61,14 +66,14 @@ export function ProductSection() {
             </div>
 
             {/* Product Image */}
-            <div className="relative aspect-[4/5] bg-muted/30 overflow-hidden transition-all duration-500 group-hover:bg-muted/50">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-px h-8 bg-border/60 mx-auto" />
-                  <div className="w-8 h-px bg-border/60 mx-auto mt-4 mb-4" />
-                  <div className="w-px h-8 bg-border/60 mx-auto" />
-                </div>
-              </div>
+            <div className="relative aspect-[4/5] bg-stone-50 overflow-hidden transition-all duration-500 group-hover:scale-[1.02]">
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
             </div>
 
             {/* Explore Link */}

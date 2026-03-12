@@ -55,14 +55,19 @@ export function Footer() {
             </h5>
             <div className="space-y-3">
               <p className="text-xs tracking-wide text-stone-300">
-                <span className="text-stone-500">TEL</span>
+                <span className="text-stone-500">谢先生</span>
                 <span className="mx-2 text-stone-600">|</span>
-                +86 138 8888 8888
+                189 7014 0592
+              </p>
+              <p className="text-xs tracking-wide text-stone-300">
+                <span className="text-stone-500">谢女士</span>
+                <span className="mx-2 text-stone-600">|</span>
+                150 1297 0982
               </p>
               <p className="text-xs tracking-wide text-stone-300">
                 <span className="text-stone-500">Email</span>
                 <span className="mx-2 text-stone-600">|</span>
-                contact@nadoincense.com
+                1577268090@qq.com
               </p>
             </div>
           </div>

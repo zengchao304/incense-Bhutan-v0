@@ -1,25 +1,31 @@
 "use client"
 
+import Image from "next/image"
+
 const homeProducts = [
   {
     id: 1,
     name: "经典居家系列",
     subtitle: "Classic Home",
+    image: "/images/classic-home.jpg",
   },
   {
     id: 2,
     name: "馥郁居家系列",
     subtitle: "Intense Home",
+    image: "/images/intense-home.jpg",
   },
   {
     id: 3,
     name: "幻夜系列",
     subtitle: "Night Collection",
+    image: "/images/night-collection.jpg",
   },
   {
     id: 4,
     name: "白陶居家系列",
     subtitle: "Ceramic Collection",
+    image: "/images/ceramic-collection.jpg",
   },
 ]
 
@@ -53,10 +59,14 @@ export function HomeCollection() {
               </div>
 
               {/* Product Image */}
-              <div className="relative aspect-square bg-stone-50 overflow-hidden transition-all duration-500 group-hover:bg-stone-100">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-6 h-6 border border-stone-200 rounded-full" />
-                </div>
+              <div className="relative aspect-square bg-stone-50 overflow-hidden transition-all duration-500 group-hover:scale-[1.02]">
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
               </div>
             </div>
           ))}

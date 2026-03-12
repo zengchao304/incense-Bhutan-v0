@@ -13,12 +13,21 @@ export function HeroSection() {
   return (
     <section className="px-4 md:px-6 lg:px-8">
       <div className="relative w-full aspect-[4/5] md:aspect-[16/9] lg:aspect-[21/9] bg-stone-100 overflow-hidden">
-        {/* Hero Image - Optimized wide banner for full content display */}
+        {/* Mobile Hero Image - Portrait orientation for mobile devices */}
         <Image
-          src="/images/hero-banner.jpg"
+          src="/images/hero-banner-mobile.jpg"
           alt="冥想场景 - 宁静的禅意空间与燃烧的香"
           fill
-          className="object-cover object-center"
+          className="object-cover object-center md:hidden"
+          priority
+          sizes="100vw"
+        />
+        {/* Web Hero Image - Landscape orientation for tablets and desktops */}
+        <Image
+          src="/images/hero-banner-web.jpg"
+          alt="冥想场景 - 宁静的禅意空间与燃烧的香"
+          fill
+          className="object-cover object-center hidden md:block"
           priority
           sizes="100vw"
         />

@@ -2,14 +2,65 @@
 
 export function Header() {
   return (
-    <header className="py-16 md:py-24 lg:py-32">
-      <div className="text-center">
-        <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium tracking-wide text-foreground">
-          翔的禅香店铺
-        </h1>
-        <p className="mt-4 text-sm md:text-base font-sans tracking-[0.3em] text-muted-foreground uppercase">
-          Nado From Bhutan
+    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border/30">
+      {/* Top Banner */}
+      <div className="bg-stone-900 text-stone-100 py-2.5 px-4">
+        <p className="text-center text-[10px] md:text-xs tracking-[0.2em]">
+          全场免运费 · 精美礼盒包装 · 来自不丹的祝福
         </p>
+      </div>
+
+      {/* Main Header */}
+      <div className="py-6 md:py-8 lg:py-10 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          {/* Navigation Left */}
+          <nav className="hidden md:flex items-center gap-8">
+            <a
+              href="#products"
+              className="text-xs tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300 uppercase"
+            >
+              全系列
+            </a>
+            <a
+              href="#about"
+              className="text-xs tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300 uppercase"
+            >
+              品牌故事
+            </a>
+          </nav>
+
+          {/* Logo */}
+          <div className="text-center flex-1 md:flex-none">
+            <h1 className="font-serif text-xl md:text-2xl lg:text-3xl font-medium tracking-wide text-foreground">
+              翔的禅香店铺
+            </h1>
+            <p className="mt-1 text-[10px] md:text-xs font-sans tracking-[0.25em] text-muted-foreground uppercase">
+              Nado From Bhutan
+            </p>
+          </div>
+
+          {/* Navigation Right */}
+          <nav className="hidden md:flex items-center gap-8">
+            <a
+              href="#gift"
+              className="text-xs tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300 uppercase"
+            >
+              献礼臻选
+            </a>
+            <a
+              href="#contact"
+              className="text-xs tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300 uppercase"
+            >
+              联系我们
+            </a>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button className="md:hidden p-2" aria-label="菜单">
+            <div className="w-5 h-px bg-foreground mb-1.5" />
+            <div className="w-5 h-px bg-foreground" />
+          </button>
+        </div>
       </div>
     </header>
   )

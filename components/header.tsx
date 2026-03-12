@@ -44,13 +44,22 @@ export function Header() {
 
           {/* Logo */}
           <div className="text-center flex-1 md:flex-none flex flex-col items-center">
-            <div className="relative w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 mb-2">
+            <div className="relative w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 mb-2">
+              {/* Light mode logo */}
               <Image
-                src="/images/logo.jpg"
+                src="/icon-light-32x32.jpg"
                 alt="翔的禅香店铺 Logo"
                 fill
-                className="object-contain"
-                sizes="64px"
+                className="object-contain dark:hidden"
+                sizes="56px"
+              />
+              {/* Dark mode logo */}
+              <Image
+                src="/icon-dark-32x32.jpg"
+                alt="翔的禅香店铺 Logo"
+                fill
+                className="object-contain hidden dark:block"
+                sizes="56px"
               />
             </div>
             <h1 className="font-serif text-lg md:text-xl lg:text-2xl font-medium tracking-wide text-foreground">

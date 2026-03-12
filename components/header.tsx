@@ -1,5 +1,7 @@
 "use client"
 
+import Image from "next/image"
+
 export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border/30">
@@ -30,11 +32,20 @@ export function Header() {
           </nav>
 
           {/* Logo */}
-          <div className="text-center flex-1 md:flex-none">
-            <h1 className="font-serif text-xl md:text-2xl lg:text-3xl font-medium tracking-wide text-foreground">
+          <div className="text-center flex-1 md:flex-none flex flex-col items-center">
+            <div className="relative w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 mb-2">
+              <Image
+                src="/images/logo.jpg"
+                alt="翔的禅香店铺 Logo"
+                fill
+                className="object-contain"
+                sizes="64px"
+              />
+            </div>
+            <h1 className="font-serif text-lg md:text-xl lg:text-2xl font-medium tracking-wide text-foreground">
               翔的禅香店铺
             </h1>
-            <p className="mt-1 text-[10px] md:text-xs font-sans tracking-[0.25em] text-muted-foreground uppercase">
+            <p className="mt-0.5 text-[9px] md:text-[10px] font-sans tracking-[0.25em] text-muted-foreground uppercase">
               Nado From Bhutan
             </p>
           </div>

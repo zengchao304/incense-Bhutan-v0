@@ -1,6 +1,19 @@
 "use client"
 
+import { useState } from "react"
+import Image from "next/image"
+
 export function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const scrollToSection = (sectionId: string) => {
+    setMobileMenuOpen(false)
+    const section = document.getElementById(sectionId)
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border/30">
       {/* Top Banner */}
@@ -30,11 +43,29 @@ export function Header() {
           </nav>
 
           {/* Logo */}
-          <div className="text-center flex-1 md:flex-none">
-            <h1 className="font-serif text-xl md:text-2xl lg:text-3xl font-medium tracking-wide text-foreground">
+          <div className="text-center flex-1 md:flex-none flex flex-col items-center">
+            <div className="relative w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 mb-2">
+              {/* Light mode logo */}
+              <Image
+                src="/icon-light-32x32.jpg"
+                alt="翔的禅香店铺 Logo"
+                fill
+                className="object-contain dark:hidden"
+                sizes="56px"
+              />
+              {/* Dark mode logo */}
+              <Image
+                src="/icon-dark-32x32.jpg"
+                alt="翔的禅香店铺 Logo"
+                fill
+                className="object-contain hidden dark:block"
+                sizes="56px"
+              />
+            </div>
+            <h1 className="font-serif text-lg md:text-xl lg:text-2xl font-medium tracking-wide text-foreground">
               翔的禅香店铺
             </h1>
-            <p className="mt-1 text-[10px] md:text-xs font-sans tracking-[0.25em] text-muted-foreground uppercase">
+            <p className="mt-0.5 text-[9px] md:text-[10px] font-sans tracking-[0.25em] text-muted-foreground uppercase">
               Nado From Bhutan
             </p>
           </div>
@@ -56,11 +87,60 @@ export function Header() {
           </nav>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden p-2" aria-label="菜单">
-            <div className="w-5 h-px bg-foreground mb-1.5" />
-            <div className="w-5 h-px bg-foreground" />
+          <button
+            className="md:hidden p-3 -mr-3 min-w-[44px] min-h-[44px] flex flex-col items-center justify-center touch-manipulation"
+            aria-label="菜单"
+            aria-expanded={mobileMenuOpen}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <div
+              className={`w-5 h-px bg-foreground transition-all duration-300 ${
+                mobileMenuOpen ? "rotate-45 translate-y-[3px]" : ""
+              }`}
+            />
+            <div
+              className={`w-5 h-px bg-foreground mt-1.5 transition-all duration-300 ${
+                mobileMenuOpen ? "-rotate-45 -translate-y-[3px]" : ""
+              }`}
+            />
           </button>
         </div>
+      </div>
+
+      {/* Mobile Menu Dropdown */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          mobileMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <nav className="py-4 px-4 border-t border-border/30 bg-background">
+          <div className="flex flex-col gap-4">
+            <button
+              onClick={() => scrollToSection("products")}
+              className="text-left text-sm tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300 uppercase py-2"
+            >
+              全系列
+            </button>
+            <button
+              onClick={() => scrollToSection("about")}
+              className="text-left text-sm tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300 uppercase py-2"
+            >
+              品牌故事
+            </button>
+            <button
+              onClick={() => scrollToSection("gift")}
+              className="text-left text-sm tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300 uppercase py-2"
+            >
+              献礼臻选
+            </button>
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="text-left text-sm tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300 uppercase py-2"
+            >
+              联系我们
+            </button>
+          </div>
+        </nav>
       </div>
     </header>
   )

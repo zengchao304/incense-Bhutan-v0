@@ -1,29 +1,42 @@
 "use client"
 
+import Image from "next/image"
+
 const homeProducts = [
   {
     id: 1,
     name: "经典居家系列",
     subtitle: "Classic Home",
+    image: "/images/classic-home.jpg",
   },
   {
     id: 2,
     name: "馥郁居家系列",
     subtitle: "Intense Home",
+    image: "/images/intense-home.jpg",
   },
   {
     id: 3,
     name: "幻夜系列",
     subtitle: "Night Collection",
+    image: "/images/night-collection.jpg",
   },
   {
     id: 4,
     name: "白陶居家系列",
     subtitle: "Ceramic Collection",
+    image: "/images/ceramic-collection.jpg",
   },
 ]
 
 export function HomeCollection() {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact")
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
     <section className="py-20 md:py-28 lg:py-36">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -53,10 +66,14 @@ export function HomeCollection() {
               </div>
 
               {/* Product Image */}
-              <div className="relative aspect-square bg-stone-50 overflow-hidden transition-all duration-500 group-hover:bg-stone-100">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-6 h-6 border border-stone-200 rounded-full" />
-                </div>
+              <div className="relative aspect-square bg-stone-50 overflow-hidden transition-all duration-500 group-hover:scale-[1.02]">
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
               </div>
             </div>
           ))}
@@ -64,7 +81,10 @@ export function HomeCollection() {
 
         {/* View All CTA */}
         <div className="text-center mt-12 md:mt-16">
-          <button className="text-xs tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors duration-300 uppercase border-b border-foreground/30 hover:border-foreground pb-1">
+          <button
+            onClick={scrollToContact}
+            className="text-xs tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors duration-300 uppercase border-b border-foreground/30 hover:border-foreground pb-1"
+          >
             居家全系列即刻探索
           </button>
         </div>

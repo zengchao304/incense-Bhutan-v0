@@ -1,35 +1,57 @@
 "use client"
 
+import Image from "next/image"
+
 export function HeroSection() {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact")
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
     <section className="px-4 md:px-6 lg:px-8">
-      <div className="relative w-full aspect-[16/9] md:aspect-[21/9] lg:aspect-[24/9] bg-stone-100 overflow-hidden">
-        {/* Subtle texture overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-stone-100/20" />
+      <div className="relative w-full aspect-[4/5] md:aspect-[16/9] lg:aspect-[2/1] bg-stone-100 overflow-hidden">
+        {/* Hero Image - Focus on center-bottom where the person and incense are */}
+        <Image
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unwatermarked_%E5%9B%BE1%E5%A4%A7%E5%B1%8F-4e2rTvHRhk5Apb9aGTsSC0lxlBkn62.png"
+          alt="冥想场景 - 宁静的禅意空间与燃烧的香"
+          fill
+          className="object-cover object-[center_70%] md:object-[center_60%] lg:object-[center_55%]"
+          priority
+          sizes="100vw"
+        />
 
-        {/* Hero Content */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center px-4">
+        {/* Subtle overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-stone-900/40 via-stone-900/10 to-transparent" />
+
+        {/* Hero Content - Positioned on left side */}
+        <div className="absolute inset-0 flex items-center">
+          <div className="px-8 md:px-16 lg:px-24">
             {/* Decorative Line */}
-            <div className="w-px h-12 md:h-16 bg-stone-400/40 mx-auto mb-8" />
+            <div className="w-px h-12 md:h-16 bg-stone-100/60 mb-8" />
 
             {/* Main Title */}
-            <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl font-medium tracking-[0.1em] text-stone-800 mb-4">
+            <h2 className="font-serif text-2xl md:text-3xl lg:text-5xl font-medium tracking-[0.1em] text-stone-50 mb-4">
               静谧之境
             </h2>
 
             {/* Subtitle */}
-            <p className="text-xs md:text-sm tracking-[0.4em] text-stone-500 uppercase mb-8">
+            <p className="text-xs md:text-sm tracking-[0.4em] text-stone-200/90 uppercase mb-8">
               The Art of Stillness
             </p>
 
             {/* CTA Button */}
-            <button className="text-xs tracking-[0.25em] text-stone-700 hover:text-stone-900 transition-colors duration-300 uppercase border-b border-stone-400 hover:border-stone-700 pb-1">
+            <button
+              onClick={scrollToContact}
+              className="text-xs tracking-[0.25em] text-stone-100 hover:text-white transition-colors duration-300 uppercase border-b border-stone-300/60 hover:border-stone-100 pb-1"
+            >
               立即探索
             </button>
 
             {/* Decorative Line */}
-            <div className="w-px h-12 md:h-16 bg-stone-400/40 mx-auto mt-8" />
+            <div className="w-px h-12 md:h-16 bg-stone-100/60 mt-8" />
           </div>
         </div>
       </div>
